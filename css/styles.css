@@ -6,7 +6,6 @@
   margin: 0;
 }
 
-
 html {
   font-family: "Courier Prime", monospace;
   font-weight: 400;
@@ -27,7 +26,6 @@ body {
 }
 
 header {
-  /* border: 2px solid black; */
   width: 60%;
   display: flex;
   align-items: center;
@@ -37,7 +35,7 @@ header {
   backdrop-filter: blur(4px);
 }
 
-header nav {
+/* header nav {
   padding: 1.5rem;
 }
 
@@ -57,6 +55,78 @@ header nav a:hover {
   text-decoration: underline;
   transition: 0.3s;
   color: blue;
+} */
+
+/* header {
+  width: 60%;
+  top: 0px;
+  backdrop-filter: blur(4px);
+  border-bottom: 1px solid black;
+} */
+
+nav {
+  padding: 1rem;
+  position: sticky;
+  
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Enlaces del menu */
+
+nav ul li a {
+  display: block;
+  color: black;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 15px;
+  padding: 10px;
+  letter-spacing: 1px;
+}
+
+/* Items del menu */
+
+nav ul li {
+  position: relative;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+/* Efecto al pasar el ratón por los items del menu */
+
+nav ul a:hover {
+  text-decoration: underline;
+  transition: 0.3s;
+  color: blue;
+}
+
+/* Estilos para menú hamburguesa */
+
+.respmenu a {
+  text-decoration: none;
+  color: black;
+}
+
+.respmenu input[type="checkbox"],
+.respmenu .abrir,
+.respmenu .cerrar {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  left: 0.5rem;
+  top: -1rem;
+  width: 2rem;
+  display: none;
+}
+
+.respmenu .abrir,
+.respmenu .cerrar {
+  pointer-events: none;
 }
 
 main {
@@ -198,6 +268,7 @@ section > h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 2rem;
 }
 
 .proyecto {
@@ -238,9 +309,17 @@ section > h2 {
   gap: 1rem;
 }
 
+.botones-proyecto {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
 .contenido-proyecto a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 10rem;
-  text-align: center;
   padding: 0.7rem;
   border-radius: 0.5rem;
   background-color: blue;
@@ -314,11 +393,56 @@ section > h2 {
 @media (max-width: 620px) {
   header {
     width: 100%;
+    padding-top: 1.2rem;
   }
 
-  nav ul {
+  /* nav ul {
     padding: 0;
     flex-wrap: wrap;
+  } */
+  .respmenu input[type="checkbox"],
+  .respmenu .abrir,
+  .respmenu .cerrar {
+    display: block;
+  }
+
+  .respmenu {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .respmenu input[type="checkbox"] {
+    position: absolute;
+    height: 2rem;
+    opacity: 0;
+  }
+
+  .respmenu input:checked ~ nav {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .respmenu input:checked ~ nav ul {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+  }
+
+  .respmenu input:checked ~ .abrir {
+    display: none;
+  }
+
+  .respmenu input:not(:checked) ~ .cerrar {
+    display: none;
   }
 
   main {
